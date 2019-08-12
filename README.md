@@ -27,6 +27,8 @@ When the img is loaded, the script will add the `.lazy-loaded` class to it, and 
 
 You can style and use it as you like, the basic example is shown in `index.html`.
 
+If you added new objects to the DOM dynamically and want to reinit the script. Just run `lazyLoadInit()`.
+
 
 ## Supporting
 

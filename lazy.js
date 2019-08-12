@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function lazyLoadInit() {
     var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
     var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
@@ -77,5 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }    
+}
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInit();
 });
