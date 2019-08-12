@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if ('IntersectionObserver' in window) {
 
-
         var lazyImageObserver = new IntersectionObserver(function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -33,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     video.target.load();
 
                     video.target.onloadeddata = function() {
-                        video.target.play();
+                        if(video.target.dataset.autoplay == "true") {
+                            video.target.play();
+                        }
                         video.target.classList.remove("lazy");
                         video.target.classList.add("lazy-loaded");
                         video.target.parentNode.classList.add("lazy-inner-loaded");
@@ -66,15 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
                     videoSource.src = videoSource.dataset.src;
                     lazyVideo.load();
-                    lazyVideo.play();
+                    if(videoSource.dataset.autoplay == "true") {
+                        lazyVideo.play();
+                    }
                     lazyVideo.classList.add("lazy-loaded");
                     lazyVideo.classList.remove("lazy");
                     lazyVideo.parentNode.classList.add("lazy-inner-loaded");
                 }
             }
         });
-    }
-
-    
+    }    
 
 });

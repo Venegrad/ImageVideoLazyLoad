@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lazy Load &rarr; venegrad.com</title>
+
+
+    <link rel="stylesheet" href="lazy.css">
+
+    <style>
+        /* demo */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        img, video {
+            display: block;
+            width: 100%;
+        }
+
+
+        .cell {
+            width: 33.333%;
+            box-shadow: inset 0px 0px 1px rgba(0,0,0,0.5);
+            background-color: #eeeeee;
+            background-image: url('img/loading.svg');
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .cell.lazy-inner-loaded {
+            background-image: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="grid">
+        <div class="cell"><img src="img/placeholder.png" data-src="img/1.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/2.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/3.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/4.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/5.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/6.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/7.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/8.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/9.jpg" alt="" class="lazy"></div>
+        <div class="cell">
+            <video class="lazy" muted="muted" loop="loop" playsinline="playsinline" data-autoplay="true">
+                <source src="img/placeholder.png" data-src="img/eino_video.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/10.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/11.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/12.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/13.jpg" alt="" class="lazy"></div>
+        <div class="cell"><img src="img/placeholder.png" data-src="img/14.jpg" alt="" class="lazy"></div>
+    </div>
+
+    <script src="lazy.js"></script>
+</body>
+</html>
